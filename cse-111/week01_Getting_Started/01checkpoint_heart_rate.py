@@ -20,7 +20,7 @@ heart rate between 65% and 85% of your heart's maximum rate.
     
     
 
-from email.headerregistry import HeaderRegistry
+
 
 
 def slowest(heart):
