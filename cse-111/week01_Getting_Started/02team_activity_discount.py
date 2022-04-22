@@ -17,10 +17,11 @@ current_date_and_time = datetime.now()
 
 day_of_week = current_date_and_time.weekday()
 # print(day_of_week)
+user_subtotal = 0
 
 #function to calculate the discount
 def get_discount(day, subtotal):
-    if subtotal >= 50 and (day == 1 or day == 2):
+    if subtotal >= 50 and (day == 1 or day == 4):
         new_subtotal = subtotal - (subtotal * 0.10)
     else:
         new_subtotal = subtotal
@@ -38,9 +39,20 @@ def new_subtotal_taxed():
     taxes = get_sales_tax()
     taxed_subtotal = discounted + taxes
     return taxed_subtotal
-    
 
+def needed_to_discount(day, subtotal):
+    if subtotal < 50 and (day == 1 or day == 2): 
+        needed = 50 - subtotal
+        print(f'To receive the discount, add {needed:.2f} to your order')
+    return needed
+price = 1
 #Built-in functions
-user_subtotal = float(input('Please enter the subtotal: '))
+while price != 0:
+    price = float(input('Please, enter the price: '))
+    if price != 0:
+        quantity = float(input('Please enter the quantity: '))
+        user_subtotal += price * quantity
+
+needed_to_discount(day_of_week, user_subtotal)
 print(f'Sales tax amount: {get_sales_tax():.2f} ')
 print(f'Total: {new_subtotal_taxed():.2f}')
