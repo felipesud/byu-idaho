@@ -23,16 +23,17 @@ heart rate between 65% and 85% of your heart's maximum rate.
 from email.headerregistry import HeaderRegistry
 
 
-def slowest():
-    slowest_rate = float(heart_rate * 0,65)
+def slowest(heart):
+    slowest_rate = heart * 0.65
     return slowest_rate
 
-def fastest():
-    fastest_rate = float(heart_rate * 0,85)
+def fastest(heart):
+    fastest_rate = heart * 0.85
     return fastest_rate
 
-age = int(input('Please enter your age: '))
+user_input = input('Please enter your age: ')
+age = int(user_input)
 heart_rate  = 220 - age
 
 
-print(f'When you exercise to strengthen your heart, you should keep your heart rate between {slowest()} and {fastest()} beats per minute.')
+print(f'When you exercise to strengthen your heart, you should keep your heart rate between {slowest(heart_rate:.0f)} and {fastest(heart_rate:.0f)} beats per minute.')
