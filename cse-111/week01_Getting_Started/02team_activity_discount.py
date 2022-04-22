@@ -40,11 +40,7 @@ def new_subtotal_taxed():
     taxed_subtotal = discounted + taxes
     return taxed_subtotal
 
-def needed_to_discount(day, subtotal):
-    if subtotal < 50 and (day == 1 or day == 2): 
-        needed = 50 - subtotal
-        print(f'To receive the discount, add {needed:.2f} to your order')
-    return needed
+
 price = 1
 #Built-in functions
 while price != 0:
@@ -53,6 +49,10 @@ while price != 0:
         quantity = float(input('Please enter the quantity: '))
         user_subtotal += price * quantity
 
-needed_to_discount(day_of_week, user_subtotal)
+
+if user_subtotal < 50 and (day_of_week == 1 or day_of_week == 4): 
+    needed = 50 - user_subtotal
+    print(f'To receive the discount, add {needed:.2f} to your order')
+
 print(f'Sales tax amount: {get_sales_tax():.2f} ')
 print(f'Total: {new_subtotal_taxed():.2f}')
