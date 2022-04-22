@@ -15,14 +15,14 @@ import math
 #Function
 def boxes_total(items, items_per_box):
     boxes = items / items_per_box
-    return math.ceil(boxes)
+    return math.ceil(boxes) #module function
 
 
 
 
 
-
-number_items = int(input('Enter the number of items: '))
+#Built-in functions
+number_items = int(input('Enter the number of items: ')) 
 items_per_box = int(input('Enter the number of items per box: '))
 
 print(f'\nFor {number_items} items, packing {items_per_box} items in each box, you will need {boxes_total(number_items, items_per_box)} boxes.')
