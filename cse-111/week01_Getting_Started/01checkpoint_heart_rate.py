@@ -36,4 +36,4 @@ age = int(user_input)
 heart_rate  = 220 - age
 
 
-print(f'When you exercise to strengthen your heart, you should keep your heart rate between {slowest(heart_rate:.0f)} and {fastest(heart_rate:.0f)} beats per minute.')
+print(f'When you exercise to strengthen your heart, you should keep your heart rate between {slowest(heart_rate):.0f} and {fastest(heart_rate):.0f} beats per minute.')
