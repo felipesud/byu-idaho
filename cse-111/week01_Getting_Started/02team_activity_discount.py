@@ -21,7 +21,7 @@ user_subtotal = 0
 
 #function to calculate the discount
 def get_discount(day, subtotal):
-    if subtotal >= 50 and (day == 1 or day == 4):
+    if subtotal >= 50 and (day == 1 or day == 2):
         new_subtotal = subtotal - (subtotal * 0.10)
     else:
         new_subtotal = subtotal
@@ -50,7 +50,7 @@ while price != 0:
         user_subtotal += price * quantity
 
 
-if user_subtotal < 50 and (day_of_week == 1 or day_of_week == 4): 
+if user_subtotal < 50 and (day_of_week == 1 or day_of_week == 2): 
     needed = 50 - user_subtotal
     print(f'To receive the discount, add {needed:.2f} to your order')
 
