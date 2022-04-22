@@ -34,3 +34,8 @@ user_aspect_ratio = float(input('Enter the aspect ratio of the tire (ex 60): '))
 user_diameter = float(input('Enter the diameter of the wheel in inches (ex 15): '))
 
 print(f'\nThe approximate volume is {volume(user_width, user_aspect_ratio, user_diameter):.2f} liters')
+
+from datetime import datetime
+current_date_and_time = datetime.now()
+with open('./assets/volumes.txt', 'at') as volumes_file:
+    print()
