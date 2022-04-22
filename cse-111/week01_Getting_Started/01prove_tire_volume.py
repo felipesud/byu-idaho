@@ -13,7 +13,7 @@ def volume(width, aspect_ratio, diameter):
     w = width
     a = aspect_ratio
     d = diameter
-    space_volume = (pi * (w ** 2) * a (w * a + 2540 * d))/10000000000
+    space_volume = (pi * (w * w) * a * (w * a + 2540 * d))/10000000000
     return space_volume
 
 
@@ -21,8 +21,11 @@ def volume(width, aspect_ratio, diameter):
 
 
 
-user_width = float(input('Enter the width of the tire in mm (ex 205): '))
-user_aspect_ratio = float(input('Enter the aspect ratio of the tire (ex 60): '))
-user_diameter = float(input('Enter the diameter of the wheel in inches (ex 15): '))
-
-print(f'The approximate volume is {volume(user_width, user_aspect_ratio, user_diameter)} liters')
+text_width = input('Enter the width of the tire in mm (ex 205): ')
+text_aspect_ratio = input('Enter the aspect ratio of the tire (ex 60): ')
+text_diameter = input('Enter the diameter of the wheel in inches (ex 15): ')
+user_width = float(text_width)
+user_aspect_ratio = float(text_aspect_ratio)
+user_diameter = float(text_diameter)
+user_volume = volume(user_width, user_aspect_ratio, user_diameter)
+print(f'The approximate volume is {user_volume} liters')
