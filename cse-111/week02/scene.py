@@ -22,7 +22,7 @@ def main():
     # as draw_sky and draw_ground here.
     draw_sky(canvas, scene_width, scene_height)
    
-    draw_ground(canvas, scene_width, scene_height)
+    draw_grass(canvas, scene_width, scene_height)
     # draw_grid(canvas, scene_width, scene_height, 50)
 
 
@@ -42,7 +42,7 @@ def draw_sky(canvas, scene_width, scene_height):
     draw_oval(canvas, 540, 460, 450, 420, width=2, outline="azure1", fill="azure1" )
     draw_oval(canvas, 450, 460, 360, 420, width=2, outline="azure1", fill="azure1" )
 
-def draw_ground(canvas, scene_width, scene_height):
+def draw_grass(canvas, scene_width, scene_height):
     """Draw the ground and all the objects on the ground."""
     draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="forestGreen")
     draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="forestGreen" )
