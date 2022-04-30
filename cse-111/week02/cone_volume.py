@@ -1,8 +1,3 @@
-# Checkpoint Week 02 Variable Scope
-# From: https://byui-cse.github.io/cse111-course/lesson04/check.html
-# By: Felipe dos Santos Belisário
-
-
 """Compute and print the volume of a right circular cone."""
 
 # Import the standard math module so that
@@ -15,7 +10,7 @@ def main():
     # the volume of an example cone.
     ex_radius = 2.8
     ex_height = 3.2
-    ex_vol = cone_volume()
+    ex_vol = cone_volume(ex_radius, ex_height)
 
     # Print several lines that describe this program.
     print("This program computes the volume of a right")
@@ -30,7 +25,7 @@ def main():
 
     # Call the cone_volume function to compute the volume
     # for the radius and height that came from the user.
-    vol = cone_volume()
+    vol = cone_volume(radius, height)
 
     # Print the radius, height, and
     # volume for the user to see.
@@ -39,7 +34,7 @@ def main():
     print(f"Volume: {vol:.1f}")
 
 
-def cone_volume():
+def cone_volume(radius, height):
     """Compute and return the volume of a right circular cone."""
     volume = math.pi * radius**2 * height / 3
     return volume
@@ -48,3 +43,7 @@ def cone_volume():
 # Start this program by
 # calling the main function.
 main()
+
+# Checkpoint Week 02 Variable Scope
+# From: https://byui-cse.github.io/cse111-course/lesson04/check.html
+# By: Felipe dos Santos Belisário
