@@ -182,7 +182,7 @@ def add_trees(canvas):
     fourth_tree(canvas)
     fifth_tree(canvas)
     sixth_tree(canvas)   
-
+# Another weather user can choose
 def draw_snow(canvas):
     scene_width = 800
     scene_height = 800
