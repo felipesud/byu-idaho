@@ -29,13 +29,13 @@ def main():
         draw_sun(canvas)
         draw_cloud(canvas, "sunny")
         draw_grass(canvas, scene_width, scene_height)
-        draw_grid(canvas, scene_width, scene_height, 50)
+        # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
     elif weather == 2:
         draw_sky(canvas, scene_width, scene_height, "cloudy")
         draw_cloud(canvas, "cloudy")
         draw_grass(canvas, scene_width, scene_height)
-        draw_grid(canvas, scene_width, scene_height, 50)
+        # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
 
 
@@ -52,14 +52,14 @@ def draw_sky(canvas, scene_width, scene_height, weather):
         #Draw the sky 
         draw_rectangle(canvas, 0, scene_height / 3,scene_width, scene_height, width=0, fill="sky blue")
     elif weather == "cloudy":
-        draw_rectangle(canvas, 0, scene_height / 3,scene_width, scene_height, width=0, fill="snow2")
+        draw_rectangle(canvas, 0, scene_height / 3,scene_width, scene_height, width=0, fill="snow3")
     
 def draw_sun(canvas):
     draw_oval(canvas, 500, 500, 400, 400, width=2, outline="yellow2", fill="yellow1" )
 
 def draw_cloud(canvas, weather):
     sunny = "azure1"
-    cloudy = "snow3"
+    cloudy = "snow2"
     if weather == "sunny":
         draw_oval(canvas, 720, 470, 590, 400, width=2, outline=sunny, fill=sunny )
         draw_oval(canvas, 300, 470, 170, 400, width=2, outline=sunny, fill=sunny )
@@ -112,30 +112,32 @@ def draw_pine_tree(canvas, center_x, bottom, height):
             skirt_left, trunk_top,
             outline="gray20", width=1, fill="dark green")
 
-def add_trees(canvas):
-
-    # Draw 1st pine tree.
+  # Draw 1st pine tree.
+def first_tree(canvas):
     tree_center_x = 200
     tree_bottom = 130
     tree_height = 180
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
 
-    # Draw 2nd pine tree.
+# Draw 2nd pine tree.
+def second_tree(canvas):
     tree_center_x = 90
     tree_bottom = 70
     tree_height = 150
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
-    
+
     # Draw 3rd pine tree.
+def third_tree(canvas):
     tree_center_x = 550
     tree_bottom = 200
     tree_height = 150
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
 
-    # Draw 4th pine tree.
+  # Draw 4th pine tree.
+def fourth_tree(canvas): 
     tree_center_x = 700
     tree_bottom = 150
     tree_height = 220
@@ -143,21 +145,29 @@ def add_trees(canvas):
             tree_bottom, tree_height)
 
      # Draw 5th pine tree.
+def fifth_tree(canvas):
     tree_center_x = 5
     tree_bottom = 130
     tree_height = 90
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
+    
+    
     # Draw 6th pine tree.
+def  sixth_tree(canvas):    
     tree_center_x = 410
     tree_bottom = 110
     tree_height = 150
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
 
-
-
-   
+def add_trees(canvas):
+    first_tree(canvas)
+    second_tree(canvas)
+    third_tree(canvas)
+    fourth_tree(canvas)
+    fifth_tree(canvas)
+    sixth_tree(canvas)   
 
 
 # Showing Initial or Ending Message
@@ -173,7 +183,7 @@ def print_elements(option):
 
 # Asking what weather the user wants to draw
 def ask_weather():
-    weather = 1
+    weather = 0
     
     print(
         "Please choose the Weather selecting one of the following: \n" \
