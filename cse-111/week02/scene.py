@@ -7,7 +7,7 @@
 from draw2d import \
     start_drawing, draw_line, draw_oval, draw_arc, \
     draw_rectangle, draw_polygon, draw_text, finish_drawing
-
+import random
 
 def main():
     # Width and height of the scene in pixels
@@ -37,7 +37,15 @@ def main():
         draw_grass(canvas, scene_width, scene_height)
         # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
-
+    elif weather == 3:
+        draw_sky(canvas, scene_width, scene_height, "cloudy")
+        draw_cloud(canvas, "cloudy")
+        draw_grass(canvas, scene_width, scene_height, "snow")
+        # draw_grid(canvas, scene_width, scene_height, 50)
+        add_trees(canvas)
+        draw_snow(canvas)
+    elif weather == 4:
+        finish_drawing(canvas)
 
     
     # Call the finish_drawing function
@@ -72,11 +80,16 @@ def draw_cloud(canvas, weather):
         draw_oval(canvas, 450, 460, 360, 420, width=2, outline=cloudy, fill=cloudy )
 
 
-def draw_grass(canvas, scene_width, scene_height):
-    """Draw the ground and all the objects on the ground."""
-    draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="forestGreen")
-    draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="forestGreen" )
-    draw_oval(canvas, 400, 230, 0, 0, width=2, outline="", fill="forestGreen" )
+def draw_grass(canvas, scene_width, scene_height, weather):
+    if weather != "snow":
+        """Draw the ground and all the objects on the ground."""
+        draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="forestGreen")
+        draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="forestGreen" )
+        draw_oval(canvas, 400, 230, 0, 0, width=2, outline="", fill="forestGreen" )
+    else:
+        draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="snow1")
+        draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="snow1" )
+        draw_oval(canvas, 400, 230, 0, 0, width=2, outline="", fill="snow1" )
 
 def draw_pine_tree(canvas, center_x, bottom, height):
     """Draw a single pine tree.
@@ -161,6 +174,7 @@ def  sixth_tree(canvas):
     draw_pine_tree(canvas, tree_center_x,
             tree_bottom, tree_height)
 
+# Function to call all of the trees functions
 def add_trees(canvas):
     first_tree(canvas)
     second_tree(canvas)
@@ -169,6 +183,20 @@ def add_trees(canvas):
     fifth_tree(canvas)
     sixth_tree(canvas)   
 
+def draw_snow(canvas):
+    scene_width = 800
+    scene_height = 800
+    half_height = round(scene_height / 2)
+    min_diam = 10
+    max_diam = 20
+
+    # Draw 300 circles, each with
+    # a random location and diameter.
+    for i in range(300):
+        x = random.randint(0, scene_width - max_diam)
+        y = random.randint(0, half_height)
+        diameter = random.randint(min_diam, max_diam)
+        draw_oval(canvas, x, y, x + diameter, y + diameter,fill="snow1")
 
 # Showing Initial or Ending Message
 def print_elements(option): 
@@ -189,8 +217,8 @@ def ask_weather():
         "Please choose the Weather selecting one of the following: \n" \
         "1. Sunny\n" \
         "2. Cloudy\n" \
-        # "3. Rainy\n" \
-        "3. Quit\n" \
+        "3. Snow\n" \
+        "4. Quit\n" \
         
     )
      # To prevent invalid entries
