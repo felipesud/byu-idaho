@@ -1,3 +1,4 @@
+#By: Felipe dos Santos Belisário
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 # Import the standard math module so that
