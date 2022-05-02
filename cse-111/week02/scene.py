@@ -28,7 +28,7 @@ def main():
         draw_sky(canvas, scene_width, scene_height, "sunny")
         draw_sun(canvas)
         draw_cloud(canvas, "sunny")
-        draw_grass(canvas, scene_width, scene_height)
+        draw_grass(canvas, scene_width, scene_height, "sunny")
         # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
     elif weather == 2:
