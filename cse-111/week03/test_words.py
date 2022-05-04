@@ -25,6 +25,7 @@ def test_prefix():
 
 
 def test_suffix():
+    
     assert suffix("", "") == ""
     assert suffix("", "correct") == ""
     assert suffix("clear", "") == ""
