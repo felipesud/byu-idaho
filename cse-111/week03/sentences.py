@@ -21,9 +21,9 @@ def main():
    print(f'{single_determiner} {single_noun} {single_verb_past}. ')
    print(f'{single_determiner} {single_noun} {single_verb_present}. ')
    print(f'{single_determiner} {single_noun} {single_verb_future}. ')
-   print(f'{get_determiner(1)} {get_noun(1)} {get_verb(1, "past")}. ')
-   print(f'{get_determiner(1)} {get_noun(1)} {get_verb(1, "past")}. ')
-   print(f'{get_determiner(1)} {get_noun(1)} {get_verb(1, "past")}. ')
+   print(f'{plural_determiner} {plural_noun} {plural_verb_past}. ')
+   print(f'{plural_determiner} {plural_noun} {plural_verb_present}. ')
+   print(f'{plural_determiner} {plural_noun} {plural_verb_future}. ')
     
 
 
