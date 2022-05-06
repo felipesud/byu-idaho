@@ -54,8 +54,51 @@ def test_get_noun():
         "dogs", "girls", "men", "rabbits", "women"]
 
     for _ in range(4):
-        noun = get_noun(1)
+        noun = get_noun(2)
         assert noun in plural_noun
+
+def test_get_verb():
+    # Testing SINGLE PAST verbs
+    past_verb = ["drank", "ate", "grew", "laughed", "thought",
+        "ran", "slept", "talked", "walked", "wrote"]
+
+    for _ in range(4):
+        verb = get_verb(1, "past")
+        assert verb in past_verb
+    
+    #Testing SINGLE PRESENT verbs
+    single_present_verb = ["drinks", "eats", "grows", "laughs", "thinks",
+        "runs", "sleeps", "talks", "walks", "writes"]
+
+    for _ in range(4):
+        verb = get_verb(1, "present")
+        assert verb in single_present_verb 
+
+    #Testing SINGLE FUTURE verbs
+    single_future_verb = ["will drink", "will eat", "will grow", "will laugh",
+        "will think", "will run", "will sleep", "will talk",
+        "will walk", "will write"]
+
+    for _ in range(4):
+        verb = get_verb(1, "future")
+        assert verb in single_future_verb 
+
+    #Testing PLURAL PRESENT verbs
+    plural_present_verb = ["drink", "eat", "grow", "laugh", "think",
+        "run", "sleep", "talk", "walk", "write"]
+
+    for _ in range(4):
+        verb = get_verb(2, "present")
+        assert verb in plural_present_verb
+    
+    #Testing PLURAL FUTURE verbs
+    plural_future_verb = ["will drink", "will eat", "will grow", "will laugh",
+        "will think", "will run", "will sleep", "will talk",
+        "will walk", "will write"]
+
+    for _ in range(4):
+        verb = get_verb(2, "future")
+        assert verb in plural_future_verb 
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
