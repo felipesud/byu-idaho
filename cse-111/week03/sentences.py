@@ -7,23 +7,13 @@ import random
 
 
 def main():
-   single_determiner = get_determiner(1)
-   single_noun = get_noun(1)
-   single_verb_past = get_verb(1, "past")
-   single_verb_present = get_verb(1, "present")
-   single_verb_future = get_verb(1, "future")
-   plural_determiner = get_determiner(2)
-   plural_noun = get_noun(2)
-   plural_verb_past = get_verb(2, "past")
-   plural_verb_present = get_verb(1, "present")
-   plural_verb_future = get_verb(2, "future")  
-
-   print(f'{single_determiner} {single_noun} {single_verb_past}. ')
-   print(f'{single_determiner} {single_noun} {single_verb_present}. ')
-   print(f'{single_determiner} {single_noun} {single_verb_future}. ')
-   print(f'{plural_determiner} {plural_noun} {plural_verb_past}. ')
-   print(f'{plural_determiner} {plural_noun} {plural_verb_present}. ')
-   print(f'{plural_determiner} {plural_noun} {plural_verb_future}. ')
+   #The main function
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "past")}. ')
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "present")}. ')
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "future")}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "past")}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(1, "present")}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "future")}. ')
     
 
 
