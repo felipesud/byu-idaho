@@ -8,12 +8,12 @@ import random
 
 def main():
    #The main function
-   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "past")}. ')
-   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "present")}. ')
-   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "future")}. ')
-   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "past")}. ')
-   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(1, "present")}. ')
-   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "future")}. ')
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "past")} {get_prepositional_phrase(1)}. ')
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "present")} {get_prepositional_phrase(1)}. ')
+   print(f'{get_determiner(1).capitalize()} {get_noun(1)} {get_verb(1, "future")} {get_prepositional_phrase(1)}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "past")} {get_prepositional_phrase(2)}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(1, "present")} {get_prepositional_phrase(2)}. ')
+   print(f'{get_determiner(2).capitalize()} {get_noun(2)} {get_verb(2, "future")} {get_prepositional_phrase(2)}. ')
     
 
 
@@ -115,5 +115,43 @@ def get_verb(quantity, tense):
     """
     verb = random.choice(verbs)
     return verb
+
+def get_preposition():
+    """Return a randomly chosen preposition
+    from this list of prepositions:
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+
+    Return: a randomly chosen preposition.
+    """
+    prepositions = ["about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"]
+    preposition = random.choice(prepositions)
+    return preposition
+
+def get_prepositional_phrase(quantity):
+    """Build and return a prepositional phrase composed of three
+    words: a preposition, a determiner, and a noun by calling the
+    get_preposition, get_determiner, and get_noun functions.
+
+    Parameter
+        quantity: an integer that determines if the determiner
+            and noun in the prepositional phrase returned from
+            this function are single or pluaral.
+    Return: a prepositional phrase.
+    """
+    if quantity == 1:
+        prepositional_phrase = (f'{get_preposition()} {get_determiner(1)} {get_noun(1)}')
+    else:
+        prepositional_phrase = (f'{get_preposition()} {get_determiner(2)} {get_noun(2)}')
+    return prepositional_phrase
 
 main()
