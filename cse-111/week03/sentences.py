@@ -149,9 +149,15 @@ def get_prepositional_phrase(quantity):
     Return: a prepositional phrase.
     """
     if quantity == 1:
-        prepositional_phrase = (f'{get_preposition()} {get_determiner(1)} {get_noun(1)}')
+        prepositional_phrase = (f'{get_preposition()} {get_determiner(1)} {get_color()} {get_noun(1)}')
     else:
-        prepositional_phrase = (f'{get_preposition()} {get_determiner(2)} {get_noun(2)}')
+        prepositional_phrase = (f'{get_preposition()} {get_determiner(2)} {get_color()} {get_noun(2)}')
     return prepositional_phrase
+
+def get_color():
+    colors = ["blue", "white", "red", "brown", "black", "yellow", "orange", "green", "purple"]
+    color = random.choice(colors)
+    return color
+
 
 main()
