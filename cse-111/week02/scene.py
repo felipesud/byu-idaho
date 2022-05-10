@@ -28,13 +28,13 @@ def main():
         draw_sky(canvas, scene_width, scene_height, "sunny")
         draw_sun(canvas)
         draw_cloud(canvas, "sunny")
-        draw_grass(canvas, scene_width, scene_height)
+        draw_grass(canvas, scene_width, scene_height, "sunny")
         # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
     elif weather == 2:
         draw_sky(canvas, scene_width, scene_height, "cloudy")
         draw_cloud(canvas, "cloudy")
-        draw_grass(canvas, scene_width, scene_height)
+        draw_grass(canvas, scene_width, scene_height, "cloudy")
         # draw_grid(canvas, scene_width, scene_height, 50)
         add_trees(canvas)
     elif weather == 3:
@@ -81,12 +81,12 @@ def draw_cloud(canvas, weather):
 
 
 def draw_grass(canvas, scene_width, scene_height, weather):
-    if weather != "snow":
+    if weather == "sunny":
         """Draw the ground and all the objects on the ground."""
         draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="forestGreen")
         draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="forestGreen" )
         draw_oval(canvas, 400, 230, 0, 0, width=2, outline="", fill="forestGreen" )
-    else:
+    elif weather == "cloudy" or weather == "snow":
         draw_rectangle(canvas, 0, 0,scene_width, scene_height / 3, width=0, fill="snow1")
         draw_oval(canvas, 830, 250, 350, 0, width=2, outline="", fill="snow1" )
         draw_oval(canvas, 400, 230, 0, 0, width=2, outline="", fill="snow1" )
@@ -222,7 +222,7 @@ def ask_weather():
         
     )
      # To prevent invalid entries
-    while weather not in range(1, 4):
+    while weather not in range(1, 5):
         # To prevent non numeric entries
         try:
             weather = int(input("Please enter an weather: ") or 0)
