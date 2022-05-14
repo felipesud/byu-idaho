@@ -7,8 +7,28 @@ During this prove milestone and the next prove assignment, you will write and te
 
 """
 
+
+
+def main():
+    NAME_INDEX = 1
+    ATOMIC_MASS_INDEX = 2
+    compound_list = make_periodic_table()
+    # For loop to show compound list
+    for show_list in compound_list:
+        name_list = show_list[NAME_INDEX]
+        atomic_mass_list = show_list[ATOMIC_MASS_INDEX]
+        print(f'{name_list} {atomic_mass_list}')
+    
+    return show_list
+
+
+
+
+
+
+
 def make_periodic_table():
-      periodic_table_list = [
+    periodic_table_list = [
         # [symbol, name, atomic_mass]
         ["Ac", "Actinium", 227],
         ["Ag", "Silver", 107.8682],
@@ -21,7 +41,7 @@ def make_periodic_table():
        [ "Ba",	"Barium",	137.327],
         ["Be",	"Beryllium",	9.012182],
        [ "Bi",	"Bismuth",	208.9804],
-        ["Br",	"Bromine",	79.904]
+        ["Br",	"Bromine",	79.904],
        [ "C",	"Carbon",	12.0107],
         ["Ca",	"Calcium",	40.078],
         ["Cd",	"Cadmium",	112.411],
@@ -102,10 +122,12 @@ def make_periodic_table():
             ["Xe",	"Xenon",	131.293],
             ["Y",	"Yttrium",	88.90585],
             ["Yb",	"Ytterbium",	173.054],
-            ["Zn",	"Zinc",],
-          ["Zr",	"Zirconium",	91.224
-]
+            ["Zn",	"Zinc", 65.38],
+          ["Zr",	"Zirconium",	91.224]
           
           
     ]
-  
+    return periodic_table_list
+
+if __name__ == "__main__":
+    main()
