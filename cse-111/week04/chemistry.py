@@ -47,7 +47,7 @@ def main():
         # Print the number of moles.
         print(f'{number_of_moles:.05f}')
 
-        known_molecules_dict = show_knowing_molecules()
+        known_molecules_dict = get_known_molecules()
     
         formula_name = get_formula_name(formula, known_molecules_dict)
         print(formula_name)
@@ -303,7 +303,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
 
 
     return total_mass
-def show_knowing_molecules():
+def get_known_molecules():
     known_molecules_dict = {
         "Al2O3": "aluminum oxide",
         "CH3OH": "methanol",
