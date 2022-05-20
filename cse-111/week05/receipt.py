@@ -13,7 +13,76 @@ and must read and process these two CSV files:
 -> The products.csv file is a catalog of all the products that the grocery store sells.
 -> The request.csv file contains the items ordered by a customer.
 
-
-
-
 """
+import csv
+KEY_COLUMN_INDEX = 0
+NAME_INDEX = 1
+PRICE_INDEX = 2
+QUANTITY_INDEX = 1
+
+
+def main():
+    # Calls the read_dict function and stores the compound dictionary in a variable named products_dict.
+    products_dict = read_dict("products.csv", KEY_COLUMN_INDEX)
+    print('All Products')
+    # Prints the products_dict.
+    print(products_dict)
+
+    compound_list = []
+    
+    print('\n Requested Items')
+    # Opens the request.csv file for reading.
+    # Contains a loop that reads and processes each row from the request.csv file. Within the body of the loop, your program must do the following for each row:
+    # Use the requested product number to find the corresponding item in the products_dict.
+    # Print the product name, requested quantity, and product price.
+    with open("request.csv", "rt") as request_file:
+        reader = csv.reader(request_file)
+        next(reader)
+        for row_list in reader:
+            if len(row_list) != 0:
+                compound_list.append(row_list) 
+    for codes in compound_list:
+        code = codes[KEY_COLUMN_INDEX]
+        quantity = codes[QUANTITY_INDEX]
+        element_name = products_dict[code]
+        name = element_name[NAME_INDEX]
+        price = element_name[PRICE_INDEX]
+        key = element_name[KEY_COLUMN_INDEX]
+        
+        if code in key:
+            print(f'{name}: {quantity} @ {price}')
+        
+
+
+           
+
+
+        
+
+
+def read_dict(filename, key_column_index):
+    """Read the contents of a CSV file into a compound
+    dictionary and return the dictionary.
+
+    Parameters
+        filename: the name of the CSV file to read.
+        key_column_index: the index of the column
+            to use as the keys in the dictionary.
+    Return: a compound dictionary that contains
+        the contents of the CSV file.
+    """
+    dictionary = {}
+
+    with open(filename, "rt") as csv_file:
+        reader = csv.reader(csv_file)
+
+        next(reader)
+        for row_list in reader:
+            if len(row_list) != 0:
+                key = row_list[key_column_index]
+                dictionary[key] = row_list
+    return dictionary
+
+
+if __name__ == "__main__":
+    main()
