@@ -14,7 +14,7 @@ and must read and process these two CSV files:
 -> The request.csv file contains the items ordered by a customer.
 
 """
-from calendar import WEDNESDAY
+
 import csv
 from datetime import datetime
 from re import sub
