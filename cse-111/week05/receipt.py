@@ -14,6 +14,7 @@ and must read and process these two CSV files:
 -> The request.csv file contains the items ordered by a customer.
 
 """
+from calendar import WEDNESDAY
 import csv
 from datetime import datetime
 from re import sub
@@ -22,14 +23,25 @@ NAME_INDEX = 1
 PRICE_INDEX = 2
 QUANTITY_INDEX = 1
 
+# Get the current date and time from your computer's operating system and print the current date and time.
+current_date_and_time = datetime.now(tz=None)
+weekday = current_date_and_time.weekday()
 
 def main():
+    # Print the store name at the top of the receipt.
     print_elements('header')
-    # Calls the read_dict function and stores the compound dictionary in a variable named products_dict.
-    products_dict = read_dict("products.csv", KEY_COLUMN_INDEX)
-    # print('All Products')
-    # # Prints the products_dict.
-    # print(products_dict)
+    # Include a try block and except blocks to handle FileNotFoundError, PermissionError, and KeyError.
+    try: 
+        # Calls the read_dict function and stores the compound dictionary in a variable named products_dict.
+        products_dict = read_dict("products.csv", KEY_COLUMN_INDEX)
+        # print('All Products')
+        # # Prints the products_dict.
+        # print(products_dict)
+    except FileNotFoundError as not_found_err:
+        print('Error: missing file')
+        print(not_found_err)
+    except PermissionError as perm_err:
+        print(perm_err)
 
     compound_list = []
     total_items = []
@@ -52,28 +64,48 @@ def main():
         print(not_found_err)
     except PermissionError as perm_err:
         print(perm_err)
-
-    for codes in compound_list:
-        code = codes[KEY_COLUMN_INDEX]
-        quantity = int(codes[QUANTITY_INDEX])
-        element_name = products_dict[code]
-        name = element_name[NAME_INDEX]
-        price = float(element_name[PRICE_INDEX])
-        key = element_name[KEY_COLUMN_INDEX]
+    try: 
         
-        total_items.append(quantity)
-        every_prices.append(price)
-    
-        if code in key:
-            print(f'{name}: {quantity} @ {price}')
-
+        for codes in compound_list:
+            code = codes[KEY_COLUMN_INDEX]
+            quantity = int(codes[QUANTITY_INDEX])
+         
+            element_name = products_dict[code]
+            name = element_name[NAME_INDEX]
+            price = float(element_name[PRICE_INDEX])
+            key = element_name[KEY_COLUMN_INDEX]
+            
+            total_items.append(quantity)
+            every_prices.append(price)
+        
+            if code in key:
+                print(f'{name}: {quantity} @ {price}')
+    except FileNotFoundError as not_found_err:
+        print('Error: missing file')
+        print(not_found_err)
+    except PermissionError as perm_err:
+        print(perm_err)
+#     Sum and print the number of ordered items.
+# Sum and print the subtotal due.
+# Compute and print the sales tax amount. Use 6% as the sales tax rate.
+# Compute and print the total amount due.
     subtotal = [x*y for x,y in zip(total_items, every_prices)]
     sum_subtotal = sum(subtotal)
+    total_to_pay = ((sum_subtotal * 0.06) + sum_subtotal)
+    
 
     print(f'\nNumber of Items: {sum(total_items)}')
     print(f'Subtotal: {sum_subtotal:.02f}')
     print(f'Sales Tax: {(sum_subtotal * 0.06):.02f}')
-    print(f'Total: {((sum_subtotal * 0.06) + sum_subtotal):.02f}')
+   
+    
+    
+    if weekday == 1 or weekday == 2:
+        total = (total_to_pay * 0.01) + total_to_pay
+        print(f'Total with 10% discount: {total:.02f}')
+    else:
+        print(f'Total: {total_to_pay:.02f}')
+    #  Print a thank you message.   
     print_elements('footer')
         
 
@@ -122,12 +154,13 @@ def print_elements(option):
         print(f"{break_line}{header}{break_line}")
     elif option == "footer":
         print(f"{break_line}{footer}{break_line}")
-        current_date_and_time = datetime.now(tz=None)
         print(f"{current_date_and_time:%A %I:%M %p}")
     elif option == "break_line":
         print(f"{break_line}")
     elif option == "section_line":
         print(f"{section_line}")
+
+
 
 
 
