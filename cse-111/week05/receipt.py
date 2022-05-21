@@ -48,6 +48,7 @@ def main():
                 if len(row_list) != 0:
                     compound_list.append(row_list) 
     except FileNotFoundError as not_found_err:
+        print('Error: missing file')
         print(not_found_err)
     except PermissionError as perm_err:
         print(perm_err)
