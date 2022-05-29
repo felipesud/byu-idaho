@@ -1,0 +1,48 @@
+First Report for a Student Chosen Program
+
+    (Please report on your progress toward completing your chosen
+    program by answering the following questions.)
+
+1. In the table below, list the dates, amount of time spent, and
+description of the work that you did on your program. Follow the example
+that is in the first row of the table. Include the time you spent doing
+any of the following:
+    a. discussing your program with your teacher, tutor, or fellow students
+    b. researching by reading articles and watching applicable videos
+    c. designing your program by drawing diagrams and other applicable documents
+    d. writing experimental code
+    d. writing code for your program
+    e. writing test functions
+    f. debugging your code
+    g. any other activity that helped you complete your program
+
+            Time Spent
+   Date       (hours)   Description of Work
+----------  ----------  -------------------------
+2022-26-05      2.0     Pondering and analyzing if the program is viable.
+2022-27-05      1.5     Watching tutorials about How to create a PDF file with Python
+2022-28-05      2.5     Writing experimental code
+
+2. Write the names of the functions in your program.
+get_speaker, get_datetime, get_talk_subject, get_report
+
+
+3. Answer the following questions about the functions in your program.
+    a. Does each function perform a single task?
+    Yes
+
+    b. Does the name of each function describe or convey the task?
+    Yes
+
+    c. Do most of your program functions have parameters and return a result?
+    Yes
+
+    If you answered "no" to any of the above three questions, what are
+    you planning to change in your program?
+
+
+
+4. Write the names of the test functions that you wrote to test your
+program functions.
+
+test_get_speaker, get_test_datetime
