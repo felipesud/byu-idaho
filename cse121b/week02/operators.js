@@ -2,7 +2,7 @@
 
 
 
-3. Subtract one from a number
+
 4. concatinate two strings together.
 5. assign a value to a variable
 6. increment the value in a variable by 3
@@ -22,3 +22,8 @@ console.log(`1. Add two numbers: ${number1} + ${number2} =  ${totalSum}`)
 // 2. Multiply two numbers
 const totalMult = number1 * number2
 console.log(`2. Multiply two numbers: ${number1} * ${number2} = ${totalMult}`)
+
+// 3. Subtract one from a number
+const numberOfSubtraction = 1
+const totalSubtract = numberOfSubtraction - number1
+console.log(`3. Subtract one from a number: ${numberOfSubtraction} - ${number1} = ${totalSubtract}`)
