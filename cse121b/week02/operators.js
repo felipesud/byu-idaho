@@ -17,7 +17,7 @@
 const number1 = 5
 const number2 = 10
 const totalSum = number1 + number2
-console.log(`1. Add two numbers = ${totalSum}`)
+console.log(`1. Add two numbers: ${number1} + ${number2} =  ${totalSum}`)
 
 // 2. Multiply two numbers
 const totalMult = number1 * number2
