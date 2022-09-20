@@ -1,7 +1,7 @@
 /* Write a Javascript snippet to do each of the following. Make your best guess if you don't know. Make sure to put some sort of response on each:
 
 
-2. Multiply two numbers
+
 3. Subtract one from a number
 4. concatinate two strings together.
 5. assign a value to a variable
@@ -19,3 +19,6 @@ const number2 = 10
 const totalSum = number1 + number2
 console.log(`1. Add two numbers = ${totalSum}`)
 
+// 2. Multiply two numbers
+const totalMult = number1 * number2
+console.log(`2. Multiply two numbers: ${number1} * ${number2} = ${totalMult}`)
