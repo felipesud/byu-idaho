@@ -35,16 +35,18 @@ console.log(`6. increment the value in a variable by 3: variable += 3 = ${variab
 let isTheSame = false;
 if (number1 === number2) {
     isTheSame = true
-    return console.log(`7. compare two values to see if they are the same: Is number1 and number2 the same?(true/false) = ${isTheSame}`);
-} 
+    return isTheSame
+}
+console.log(`7. compare two values to see if they are the same: Is number1 and number2 the same?(true/false) = ${isTheSame}`); 
 
 
 //8. check to see if one number is less than another number
 let isSmaller = false;
 if (number1 < number2){
     isSmaller = true;
-    return console.log(`8. check to see if one number is less than another number: Is number1 less than number2?(true/false) = ${isSmaller}`);
+    return isSmaller
 }
+console.log(`8. check to see if one number is less than another number: Is number1 less than number2?(true/false) = ${isSmaller}`);
 
 //9. Check to see if two values are NOT equal
 let isNotEqual = false;
@@ -52,7 +54,7 @@ if (totalSubtract  != totalMult){
     isNotEqual = true;
     return isNotEqual
     }
-    console.log(`9. Check to see if two values are NOT equal: Is totalSubtract and totalMult NOT equal? (true/false) ${isNotEqual}`);
+console.log(`9. Check to see if two values are NOT equal: Is totalSubtract and totalMult NOT equal? (true/false) ${isNotEqual}`);
 
 //10. check to see if a value is less than 10 and greater than 0
 let isLessThanTenAndGreaterThanZero = false;
