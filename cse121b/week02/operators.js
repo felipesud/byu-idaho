@@ -50,12 +50,14 @@ if (number1 < number2){
 let isNotEqual = false;
 if (totalSubtract  != totalMult){
     isNotEqual = true;
-    return console.log(`9. Check to see if two values are NOT equal: Is totalSubtract and totalMult NOT equal? (true/false) ${isNotEqual}`);
+    return isNotEqual
     }
+    console.log(`9. Check to see if two values are NOT equal: Is totalSubtract and totalMult NOT equal? (true/false) ${isNotEqual}`);
 
 //10. check to see if a value is less than 10 and greater than 0
 let isLessThanTenAndGreaterThanZero = false;
 if (totalSum < 10 && totalSum > 0){
     isLessThanTenAndGreaterThanZero = true;
-    return console.log(`10. check to see if a value is less than 10 and greater than 0: Is totalSum < 10 && > 0?(true/false) = ${isLessThanTenAndGreaterThanZero}`)
+    return isLessThanTenAndGreaterThanZero
 }
+console.log(`10. check to see if a value is less than 10 and greater than 0: Is totalSum < 10 && > 0?(true/false) = ${isLessThanTenAndGreaterThanZero}`);   
