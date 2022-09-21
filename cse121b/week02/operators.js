@@ -1,15 +1,4 @@
 /* Write a Javascript snippet to do each of the following. Make your best guess if you don't know. Make sure to put some sort of response on each:
-
-
-
-
-
-
-
-
-
-
-
 */
 
 // 1. Add two numbers
