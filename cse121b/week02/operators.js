@@ -6,8 +6,8 @@
 
 
 
-7. compare two values to see if they are the same
-8. check to see if one number is less than another number
+
+
 9. Check to see if two values are NOT equal
 10. check to see if a value is less than 10 and greater than 0
 */
@@ -36,8 +36,23 @@ console.log(`4. concatinate two strings together = ${string1} ${string2}`);
 
 //5. assign a value to a variable
 let variable = 8;
-console.log(`5. assign a value to a variable: variable = ${variable}`)
+console.log(`5. assign a value to a variable: variable = ${variable}`);
 
 //6. increment the value in a variable by 3
 variable += 3;
-console.log(`6. increment the value in a variable by 3: variable += 3 = ${variable}`)
+console.log(`6. increment the value in a variable by 3: variable += 3 = ${variable}`);
+
+//7. compare two values to see if they are the same
+let isTheSame = false;
+if (number1 === number2) {
+    isTheSame = true
+    return console.log(`7. compare two values to see if they are the same: Is number1 and number2 the same?(true/false) = ${isTheSame}`);
+} 
+
+
+//8. check to see if one number is less than another number
+let isSmaller = false;
+if (number1 < number2){
+    isSmaller = true;
+    return console.log(`8. check to see if one number is less than another number: Is number1 less than number2?(true/false) = ${isSmaller}`);
+}
