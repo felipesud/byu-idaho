@@ -35,7 +35,9 @@ console.log(`6. increment the value in a variable by 3: variable += 3 = ${variab
 let isTheSame = false;
 if (number1 === number2) {
     isTheSame = true
-    return isTheSame
+}
+else{
+     isTheSame = false
 }
 console.log(`7. compare two values to see if they are the same: Is number1 and number2 the same?(true/false) = ${isTheSame}`); 
 
@@ -44,7 +46,9 @@ console.log(`7. compare two values to see if they are the same: Is number1 and n
 let isSmaller = false;
 if (number1 < number2){
     isSmaller = true;
-    return isSmaller
+}
+else {
+    isSmaller = false
 }
 console.log(`8. check to see if one number is less than another number: Is number1 less than number2?(true/false) = ${isSmaller}`);
 
@@ -52,14 +56,18 @@ console.log(`8. check to see if one number is less than another number: Is numbe
 let isNotEqual = false;
 if (totalSubtract  != totalMult){
     isNotEqual = true;
-    return isNotEqual
-    }
+}
+else {
+    isNotEqual = false
+}
 console.log(`9. Check to see if two values are NOT equal: Is totalSubtract and totalMult NOT equal? (true/false) ${isNotEqual}`);
 
 //10. check to see if a value is less than 10 and greater than 0
 let isLessThanTenAndGreaterThanZero = false;
 if (totalSum < 10 && totalSum > 0){
     isLessThanTenAndGreaterThanZero = true;
-    return isLessThanTenAndGreaterThanZero
 }
-console.log(`10. check to see if a value is less than 10 and greater than 0: Is totalSum < 10 && > 0?(true/false) = ${isLessThanTenAndGreaterThanZero}`);   
+else {
+    isLessThanTenAndGreaterThanZero = false
+}
+console.log(`10. check to see if a value is less than 10 and greater than 0: Is totalSum < 10 && totalSum > 0?(true/false) = ${isLessThanTenAndGreaterThanZero}`);   
