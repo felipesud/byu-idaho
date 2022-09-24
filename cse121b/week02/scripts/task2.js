@@ -3,15 +3,17 @@
 /* VARIABLES */
 
 // Step 1: declare and instantiate a variable to hold your name
-let myName = 'Felipe Belisário'
+let myName = 'Felipe Belisário';
 
 // Step 2: place the value of the name variable into the HTML file (hint: document.querySelector())
-
+document.querySelector('#name').textContent = myName;
 
 // Step 3: declare and instantiate a variable to hold the current year
-
+const date = new Date();
+const year = date.getFullYear();
 
 // Step 4: place the value of the current year variable into the HTML file
+document.querySelector('#year').textContent = year;
 
 
 // Step 5: declare and instantiate a variable to hold the name of your picture
