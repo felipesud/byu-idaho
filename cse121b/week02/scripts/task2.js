@@ -23,37 +23,41 @@ const myPhoto = '/week02/images/profile.png'
 
 // Step 7: place the value of the picture variable into the HTML file (hint: document.querySelector().setAttribute())
 
- document.querySelector('img')
-.setAttribute('src', myPhoto);
+document.querySelector('img').setAttribute('src', myPhoto);
 
 
 /* ARRAYS */
 
 // Step 1: declare and instantiate an array variable to hold your favorite foods
-
+let favoriteFoods = ['bread', 'cake', 'apple pie', 'brownie', 'ice cream'];
 
 // Step 2: place the values of the favorite foods variable into the HTML file
+document.querySelector('#food').textContent = favoriteFoods;
 
 
 // Step 3: declare and instantiate a variable to hold another favorite food
-
+let moreFoods = ['carrots', 'apple', 'pears', 'orange', 'grape'];
 
 // Step 4: add the variable holding another favorite food to the favorite food array
+favoriteFoods = favoriteFoods.concat(moreFoods)
 
 
 // Step 5: repeat Step 2
+document.querySelector('#food').textContent = favoriteFoods;
 
 
 // Step 6: remove the first element in the favorite foods array
-
-
+favoriteFoods.shift();
+// console.log(typeof(favoriteFoods))
 // Step 7: repeat Step 2
+document.querySelector('#food').textContent = favoriteFoods;
 
 
-// Step 8: remove the last element in the favorite foods array
+// // Step 8: remove the last element in the favorite foods array
+favoriteFoods.pop()
 
-
-// Step 7: repeat Step 2
+// // Step 7: repeat Step 2
+document.querySelector('#food').textContent = favoriteFoods;
 
 
 
