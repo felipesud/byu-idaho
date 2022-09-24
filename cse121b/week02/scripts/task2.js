@@ -3,7 +3,7 @@
 /* VARIABLES */
 
 // Step 1: declare and instantiate a variable to hold your name
-let myName = 'Felipe Belisário';
+const myName = 'Felipe Belisário';
 
 // Step 2: place the value of the name variable into the HTML file (hint: document.querySelector())
 document.querySelector('#name').textContent = myName;
@@ -17,13 +17,14 @@ document.querySelector('#year').textContent = year;
 
 
 // Step 5: declare and instantiate a variable to hold the name of your picture
-
+const myPhoto = '/week02/images/profile.png'
 
 // Step 6: copy your image into the "images" folder
 
 // Step 7: place the value of the picture variable into the HTML file (hint: document.querySelector().setAttribute())
 
-
+ document.querySelector('img')
+.setAttribute('src', myPhoto);
 
 
 /* ARRAYS */
