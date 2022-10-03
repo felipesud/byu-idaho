@@ -33,9 +33,26 @@ const subtractNumbersButton = document.querySelector("#subtractNumbers")
 subtractNumbersButton.addEventListener("click", subtractNumbers)
 
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
+const multiply = (number1, number2) => {
+    return number1 * number2;
+}
 const multiplyNumbers = () => {
     document.querySelector("#product").value = multiply(document.querySelector("#factor1").value, document.querySelector("#factor2").value)
+}
+const multiplyButton = document.querySelector("#multiplyNumbers")
+multiplyButton.addEventListener("click", multiplyNumbers)
+
 // Step 8: Using any of the three function declaration types, repeat Steps 1-5 with new functions named divide and divideNumbers and HTML form controls with IDs of dividend, divisor, quotient and divideNumbers
+const divide = (number1, number2) => {
+    return number1 / number2;
+}
+
+const divideNumbers = () => {
+    document.querySelector("#quotient").value = divide(document.querySelector("#dividend").value, document.querySelector("#divisor").value)
+}
+
+const divideButton = document.querySelector("#divideNumbers")
+divideButton.addEventListener("click", divideNumbers)
 
 // Step 9: Test all of the mathematical functionality of the task3.html page.
 
