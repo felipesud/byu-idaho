@@ -10,19 +10,26 @@ function add (number1, number2){
 
 // Step 3: Step 3: Using function declaration, define another function named addNumbers that gets the values of two HTML form controls with IDs of addend1 and addend2. Pass them to the add function
 function addNumbers(){
-    const addend1 = +document.querySelector('#addend1').value;
-    const addend2 = +document.querySelector('#addend2').value;
-    add(addend1, addend2)
+    let addend1 = +document.querySelector('#addend1').value;
+    let addend2 = +document.querySelector('#addend2').value;
+    // let sum = add(addend1, addend2)
+    const mySum =  addend1 + addend2
+    const sum = document.querySelector('#sum').value;
+    sum.innerHTML = addend1 + addend2
+    console.log (sum)
+    console.log (mySum)
      
 }
 
 
 // Step 4: Assign the return value to an HTML form element with an ID of sum
-document.getElementById('#sum').innerHTML = addNumbers();
+// outputElement.innerHTML = addNumbers.value
+// console.log(outputElement)
 
 // Step 5: Add a "click" event listener to the HTML button with an ID of addNumbers that calls the addNumbers function
+const addNumbersButton = document.getElementById("addNumbers");
+addNumbersButton.addEventListener("click", addNumbers);
 
-document.getElementById('#addNumbers').addEventListener('click', addNumbers())
 // Step 6: Using function expressions, repeat Steps 1-5 with new functions named subtract and subtractNumbers and HTML form controls with IDs of minuend, subtrahend, difference and subtractNumbers
 const subtract = function (number1, number2){
     return number1 - number2
