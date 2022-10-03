@@ -10,15 +10,7 @@ function add (number1, number2){
 
 // Step 3: Step 3: Using function declaration, define another function named addNumbers that gets the values of two HTML form controls with IDs of addend1 and addend2. Pass them to the add function
 function addNumbers(){
-    let addend1 = +document.querySelector('#addend1').value;
-    let addend2 = +document.querySelector('#addend2').value;
-    // let sum = add(addend1, addend2)
-    const mySum =  addend1 + addend2
-    const sum = document.querySelector('#sum').value;
-    sum.innerHTML = addend1 + addend2
-    console.log (sum)
-    console.log (mySum)
-     
+    document.querySelector("#sum").value = add(+document.querySelector("#addend1").value, +document.querySelector("#addend2").value)
 }
 
 
