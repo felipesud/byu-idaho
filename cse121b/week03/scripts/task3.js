@@ -9,14 +9,13 @@ function add (number1, number2){
 }
 
 // Step 3: Step 3: Using function declaration, define another function named addNumbers that gets the values of two HTML form controls with IDs of addend1 and addend2. Pass them to the add function
+// Step 4: Assign the return value to an HTML form element with an ID of sum
 function addNumbers(){
     document.querySelector("#sum").value = add(+document.querySelector("#addend1").value, +document.querySelector("#addend2").value)
 }
 
 
-// Step 4: Assign the return value to an HTML form element with an ID of sum
-// outputElement.innerHTML = addNumbers.value
-// console.log(outputElement)
+
 
 // Step 5: Add a "click" event listener to the HTML button with an ID of addNumbers that calls the addNumbers function
 const addNumbersButton = document.getElementById("addNumbers");
@@ -27,14 +26,15 @@ const subtract = function (number1, number2){
     return number1 - number2
 }
 
-const subtractNumbers = function (minuhend, subtrahend){
-    return subtract (minuhend, subtrahend)
+const subtractNumbers = function (){
+    document.querySelector("#difference").value = subtract(document.querySelector("#minuend").value, document.querySelector("#subtrahend").value)
 }
+const subtractNumbersButton = document.querySelector("#subtractNumbers")
+subtractNumbersButton.addEventListener("click", subtractNumbers)
 
-document.querySelector('#difference').textContent = subtractNumbers
-document.querySelector('#subtractNumbers').addEventListener("click", subtractNumbers)
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
-
+const multiplyNumbers = () => {
+    document.querySelector("#product").value = multiply(document.querySelector("#factor1").value, document.querySelector("#factor2").value)
 // Step 8: Using any of the three function declaration types, repeat Steps 1-5 with new functions named divide and divideNumbers and HTML form controls with IDs of dividend, divisor, quotient and divideNumbers
 
 // Step 9: Test all of the mathematical functionality of the task3.html page.
