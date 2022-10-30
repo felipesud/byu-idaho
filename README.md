@@ -13,6 +13,7 @@ Each of courses have at least 3 kinds of files
 2. **[CSE 111 – Programming with Functions:](https://github.com/felipesud/byu-idaho/tree/master/cse-111)** This course will introduce students to programming with functions. This will include functions, parameters, scope, and return values. A great emphasis will be spent on working with larger codebases and producing useful applications.
 3. **[WDD 230 – Web Frontend Development I:](https://github.com/felipesud/wdd230)** This course focuses on the planning and development of responsive web sites using HTML, CSS, and JavaScript with attention to usability principles.
 4. **[CSE 121B – JavaScript Language:](https://github.com/felipesud/byu-idaho/tree/master/cse121b)** This course introduces students to using JavaScript to solve discipline specific problems.
+5.**[CSE 210 – Programming with Classes:](https://github.com/felipesud/byu-idaho/tree/master/cse210)** This course will introduce the notion of classes and objects. It will present encapsulation at a conceptual level. It will also work with inheritance and polymorphism.
 
 
 
