@@ -1,3 +1,10 @@
+# Week 01 CSE210 Assignment
+# Tic-Tac-Toe Game
+#Author: Felipe dos Santos Belisario
+
+
+
+
 from time import sleep
 from random import randint
 import sys
