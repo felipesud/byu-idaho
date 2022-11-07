@@ -14,7 +14,7 @@ def main():
 
     pts_player = 0
     pts_cpu = 0
-
+    #starting variables
     while True:
         j = ''
         first = ''
@@ -34,6 +34,7 @@ def main():
         random_play = 0
         shifts = 1
         winner = ''
+        #Strarting Message
         starting_board = ''' 
         
     --- HOW TO PLAY ---
@@ -55,6 +56,7 @@ def main():
         '''
 
         print(starting_board)
+        #While loop for figure out who will begins 
         print('Do you want to be the X  or the O?', end=' ')
         while j != 'O' and j != 'X':
             j = str(input('Type X or O and press Enter to continue: ')).strip().upper()
@@ -79,7 +81,7 @@ def main():
             print('\nSo you play first.\n')
         elif first == 'CPU':
             print('\nSo I play first\n')
-        
+        #Function to store the board updates
         def update_board():
             global p1, p2, p3, p4, p5, p6, p7, p8, p9
             board =  '''
@@ -94,7 +96,7 @@ _____|_____|_____
      |     |
             '''.format(p1, p2, p3, p4, p5, p6, p7, p8, p9)
             print(board)
-        
+        #Player 1 choice function
         def play_j1():
             global move 
 
@@ -104,7 +106,7 @@ _____|_____|_____
                     break
                 except ValueError:
                     print('\nInvalid value entered. Enter an integer from 1 to 9!\n')
-        
+        #Player 1 move function
         def routine_j1():
             global move
             global pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
@@ -115,7 +117,7 @@ _____|_____|_____
 
             while move not in range(1, (9 + 1)):
                 play_j1()
-
+            #condition and loop to know if the play is valid
                 if move not in range (1, (9 + 1)):
                     print('\nIvalid Number\n')
             while move == 1 and pos1 == 'occupied' or \
@@ -129,7 +131,7 @@ _____|_____|_____
                 move == 9 and pos9 == 'occupied': 
                 print(msg_occupied)
                 routine_j1()
-        
+        #After player move, store what they did
         def update_plays_j1():
             global move
             global p1, p2, p3, p4, p5, p6, p7, p8, p9
@@ -162,7 +164,7 @@ _____|_____|_____
             elif move == 9:
                         p9 = j
                         pos9 = 'occupied'  
-
+        #Update CPU plays
         def update_plays_j2():
             global move, random_play, adv
             global p1, p2, p3, p4, p5, p6, p7, p8, p9
