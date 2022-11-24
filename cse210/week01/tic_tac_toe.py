@@ -5,309 +5,126 @@
 
 
 
-from time import sleep
-from random import randint
-import sys
+# Define table of rows of winning second and third squares for each position in grid.
+winning_positions = [
+    [[1, 2], [3, 6], [4, 8]],           # 0
+    [[0, 2], [4, 7]],                   # 1
+    [[0, 1], [4, 6], [5, 8]],           # 2
+    [[0, 6], [4, 5]],                   # 3
+    [[0, 8], [1, 7], [2, 6], [3, 5]],   # 4
+    [[2, 8], [3, 4]],                   # 5
+    [[0, 3], [2, 4], [7, 8]],           # 6
+    [[1, 4], [6, 8]],                   # 7
+    [[0, 4], [2, 5], [6, 7]]            # 8
+   ]
 
+player_x = "X"
+player_o = "O"
 
 def main():
+    print("""
+Tic-Tac-Toe is a game in which two players seek in alternate turns to complete
+a row, a column, or a diagonal with either three x's or three o's drawn in the
+spaces of a grid of nine squares.
+    """)
 
-    pts_player = 0
-    pts_cpu = 0
-    #starting variables
-    while True:
-        j = ''
-        first = ''
-        p1 = ''
-        p2 = '' 
-        p3 = ''
-        p4 = ''
-        p5 = ''
-        p6 = ''
-        p7 = ''
-        p8 = ''
-        p9 = ''
-        blank = 'blank'
-        pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9 = blank, blank, blank, blank, blank, blank, blank, blank, blank
-        play = 0
-        play_adv = 0
-        random_play = 0
-        shifts = 1
-        winner = ''
-        #Strarting Message
-        starting_board = ''' 
+    # Initialize positions.
+    positions = \
+        ['1', '2', '3',
+         '4', '5', '6',
+         '7', '8', '9']
+
+    a_winner = None
+    current_player = player_x
+
+    display_positions(positions)
+    available_positions = count_available_positions(positions)
+    while available_positions > 0 and not a_winner:
+        # Loop until no more avaiable positions
+        # or a player has won.
+
+        # Go for current_player
+        choice = get_choice(current_player, positions)
+        display_positions(positions)
+
+        # Check for win.
+        a_winner = check_for_win(choice, positions)
+        if not a_winner:
+           # Change current player
+            if current_player == player_x:
+                current_player = player_o
+            elif current_player == player_o:
+                current_player = player_x
+
+        # Now count available positions left.
+        available_positions = count_available_positions(positions)
+
+    if not a_winner:
+        print("Game is a draw.")
+    else:
+        print(f"Congratulations, {a_winner} won the game.") 
+
+
+def count_available_positions(positions):
+    # Return the number of available positions,
+    # not already taken by a player.
+    available = 0
+    for i in range(9):
+        if positions[i] != player_x and positions[i] != player_o:
+            available += 1
+    return available
+
+
+def check_for_win(choice, positions):
+    # Check for a winner at choice.
+    # Return the winner if it is a winning position. None otherwise.
+
+    square = choice-1
+    a_winner = None
+    player = positions[square]
+
+    # Check the winning rows for the player at specified square.
+    winning_rows = winning_positions[square]
+    for row in winning_rows:
+        # If two squares at the current row match the player, then a winner.
+        if positions[row[0]] == player and positions[row[1]] == player:
+            a_winner = player
+            break
         
-    --- HOW TO PLAY ---
-    When it's your turn, the number corresponds to the position on the board to make your move.
-    For example, you want to play center, so you type 5.
+    return a_winner
 
-        |     |     
-    1  |  2  |  3  
-    _____|_____|_____
-        |     |     
-    4  |  5  |  6  
-    _____|_____|_____
-        |     |     
-    7  |  8  |  9  
-        |     |  
-        
-        
-        
-        '''
 
-        print(starting_board)
-        #While loop for figure out who will begins 
-        print('Do you want to be the X  or the O?', end=' ')
-        while j != 'O' and j != 'X':
-            j = str(input('Type X or O and press Enter to continue: ')).strip().upper()
-            if j != 'O' and j != 'X':
-                print('\nInvalid choice, try again!\n')
-
-        if j == 'O':
-            adv = 'X'
-            print('\nCool. So I go with the X. ')
-        elif j == 'X':
-            adv = 'O'
-            print('\n Cool. So I go with the O. ')
-        print('\nWho plays first?', end='')
-
-        while first != 'ME' and first != 'CPU':
-            instr = 'Type ME and press Enter to get you started, or type CPU and press Enter to get me started: '
-            first = str(input(instr)).strip().upper()
-            if first != 'ME' and first != 'CPU':
-                print('\nInvalid choice, try again!\n')
-        
-        if first == 'ME':
-            print('\nSo you play first.\n')
-        elif first == 'CPU':
-            print('\nSo I play first\n')
-        #Function to store the board updates
-        def update_board():
-            global p1, p2, p3, p4, p5, p6, p7, p8, p9
-            board =  '''
-         |     |   
-  {}  |  {}  |  {}
-_____|_____|_____
-     |     |
-  {}  |  {}  |  {}
-_____|_____|_____
-     |     |
-  {}  |  {}  |  {}
-     |     |
-            '''.format(p1, p2, p3, p4, p5, p6, p7, p8, p9)
-            print(board)
-        #Player 1 choice function
-        def play_j1():
-            global move 
-
-            while True:
-                try:
-                    move = int(input('Type your move position (1 to 9) and press Enter: '))
-                    break
-                except ValueError:
-                    print('\nInvalid value entered. Enter an integer from 1 to 9!\n')
-        #Player 1 move function
-        def routine_j1():
-            global move
-            global pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
-
-            msg_occupied = '\nThis space is already occupied!\n'
-
-            play_j1()
-
-            while move not in range(1, (9 + 1)):
-                play_j1()
-            #condition and loop to know if the play is valid
-                if move not in range (1, (9 + 1)):
-                    print('\nIvalid Number\n')
-            while move == 1 and pos1 == 'occupied' or \
-                move == 2 and pos2 == 'occupied' or \
-                move == 3 and pos3 == 'occupied' or \
-                move == 4 and pos4 == 'occupied' or \
-                move == 5 and pos5 == 'occupied' or \
-                move == 6 and pos6 == 'occupied' or \
-                move == 7 and pos7 == 'occupied' or \
-                move == 8 and pos8 == 'occupied' or \
-                move == 9 and pos9 == 'occupied': 
-                print(msg_occupied)
-                routine_j1()
-        #After player move, store what they did
-        def update_plays_j1():
-            global move
-            global p1, p2, p3, p4, p5, p6, p7, p8, p9
-            global pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
-
-            if move == 1:
-                p1 = j
-                pos1 = 'occupied'
-            elif move == 2:
-                p2 = j
-                pos2 = 'occupied'    
-            elif move == 3:
-                p3 = j
-                pos3 = 'occupied'   
-            elif move == 4:
-                p4 = j
-                pos4 = 'occupied'  
-            elif move == 5:
-                p5 = j
-                pos5 = 'occupied'
-            elif move == 6:
-                p6 = j
-                pos6 = 'occupied'            
-            elif move == 7:
-                p7 = j
-                pos7 = 'occupied'            
-            elif move == 8:
-                        p8 = j
-                        pos8 = 'occupied'            
-            elif move == 9:
-                        p9 = j
-                        pos9 = 'occupied'  
-        #Update CPU plays
-        def update_plays_j2():
-            global move, random_play, adv
-            global p1, p2, p3, p4, p5, p6, p7, p8, p9
-            global pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9
-
-            print('\n Let me think about my move...\n') 
-            sleep(1.5)
-            random_play = randint(1,9)
-
-            while random_play == 1 and pos1 == 'occupied' or \
-                random_play == 2 and pos2 == 'occupied' or \
-                random_play == 3 and pos3 == 'occupied' or \
-                random_play == 4 and pos4 == 'occupied' or \
-                random_play == 5 and pos5 == 'occupied' or \
-                random_play == 6 and pos6 == 'occupied' or \
-                random_play == 7 and pos7 == 'occupied' or \
-                random_play == 8 and pos8 == 'occupied' or \
-                random_play == 9 and pos9 == 'occupied': 
-                random_play = randint(1, 9)
-            print('\nI play in the position {}!'.format(random_play))
-
-            if random_play == 1:
-                p1 = adv
-                pos1 = 'occupied'
-            elif random_play == 2:
-                p2 = adv
-                pos2 = 'occupied'    
-            elif random_play == 3:
-                p3 = adv
-                pos3 = 'occupied'   
-            elif random_play == 4:
-                p4 = adv
-                pos4 = 'occupied'  
-            elif random_play == 5:
-                p5 = adv
-                pos5 = 'occupied'
-            elif random_play == 6:
-                p6 = adv
-                pos6 = 'occupied'            
-            elif random_play == 7:
-                p7 = adv
-                pos7 = 'occupied'            
-            elif random_play == 8:
-                        p8 = adv
-                        pos8 = 'occupied'            
-            elif random_play == 9:
-                        p9 = adv
-                        pos9 = 'occupied'
-        
-        def check_winner():
-            global j, adv, shifts, winner, pts_player, pts_cpu
-            global p1, p2, p3, p4, p5, p6, p7, p8, p9
-
-            if p1 == j and p2 == j and p3 == j or \
-            p1 == j and p4 == j and p7 == j or \
-            p1 == j and p5 == j and p9 == j or \
-            p2 == j and p5 == j and p8 == j or \
-            p3 == j and p5 == j and p7 == j or \
-            p3 == j and p6 == j and p9 == j or \
-            p4 == j and p5 == j and p6 == j or \
-            p7 == j and p8 == j and p9 == j:
-                print('CONGRATULATIONS, YOU WON!!!!\n')
-                pts_player += 1
-                winner = 'ME'
-                shifts = 10
-            
-            if p1 == adv and p2 == adv and p3 == adv or \
-            p1 == adv and p4 == adv and p7 == adv or \
-            p1 == adv and p5 == adv and p9 == adv or \
-            p2 == adv and p5 == adv and p8 == adv or \
-            p3 == adv and p5 == adv and p7 == adv or \
-            p3 == adv and p6 == adv and p9 == adv or \
-            p4 == adv and p5 == adv and p6 == adv or \
-            p7 == adv and p8 == adv and p9 == adv:
-                print('I WON!\n')
-                pts_cpu += 1
-                winner = 'CPU'
-                shifts = 10
-        
-        def update_all():
-            global move
-            global shifts
-            global winner
-
-            if first == 'ME':
-                routine_j1()
-                update_plays_j1()
-                update_board()
-                check_winner()
-
-                if shifts == 5:
-                    print('DRAW!\n')
-                    shifts = 10
-                    winner = 'DRAW'
-
-                if winner == '':
-                    update_plays_j2()
-                    update_board()
-                    check_winner()
-            elif first == 'CPU':
-                update_plays_j2()
-                update_board()
-                check_winner()
-
-                if shifts == 5:
-                    print('DRAW!\n')
-                    shifts = 10
-                    winner = 'DRAW'
-                
-                if winner == '':
-                    routine_j1()
-                    update_plays_j1()
-                    update_board()
-                    check_winner()
-            move = 0
-            shifts += 1
-
-        while shifts <= 5:
-            update_all()
-        
-        print('-------- SCOREBOARD --------')
-        print('You: {} | Computer: {}'.format(pts_player, pts_cpu))
-        print('------------------------')
-        
-        while True:
-            restart = input('\nWant to play again? Enter Y for yes or N for no: ').lower()
-
-            if restart in ('y', 'n', '"y"', '"n"'):
-                break
-            print('\nInvalid answer!')
-
-        if restart == 'y' or restart == '"y"':
-            print('\n-----------------------------------------------------')
-            continue
+def get_choice(player, positions):
+    # Get a valid choice for the player, set the square
+    # for the player, and return the choice.
+    # Note that choice is based on players input of 1 - 9.
+    valid_choice = False
+    while not valid_choice:
+        choice = int(input(f"{player}'s turn to choose a square (1-9): "))
+        if choice >= 1 and choice <= 9:
+            square = choice-1
+            if positions[square] != player_x and positions[square] != player_o:
+                # Set the square to tghe player and return choice.
+                positions[square] = player
+                valid_choice = True
+            else:
+                print("Square is already taken. Please try again.")
         else:
-            print('\nGood game. Thanks for playing!\n')
-            sys.exit(0)
-
-main()
-
+            print(f"Invalid choice {choice}. Please try again.")
+    print()
+    return choice
 
 
+# Display the positions
+def display_positions(positions):
+    print(f"{positions[0]}|{positions[1]}|{positions[2]}")
+    print("-+-+-")
+    print(f"{positions[3]}|{positions[4]}|{positions[5]}")
+    print("-+-+-")
+    print(f"{positions[6]}|{positions[7]}|{positions[8]}")
+    print()
 
 
-
-
+# Call main to start this program.
+if __name__ == "__main__":
+    main()
