@@ -16,7 +16,9 @@ Each of courses have at least 3 kinds of files
 5. **[CSE 210 – Programming with Classes:](https://github.com/felipesud/byu-idaho/tree/master/cse210)** This course will introduce the notion of classes and objects. It will present encapsulation at a conceptual level. It will also work with inheritance and polymorphism.
 5. **[WDD 330 – Web Frontend Development II:](https://github.com/felipesud/sleepOutside)** WDD 330 will continue with the topics presented in WDD 230 Web Front-end Development I: Building websites with HTML, CSS, and Javascript. This course will have a stronger emphasis on Javascript development and mobile design as students create mobile web applications.[See the Final project repository](https://github.com/felipesud/amazing-animals).
 
-6. **[CSE 340 – Web Backend Development:](https://github.com/felipesud/byu-idaho/tree/master/cse340/phpmotors)** This programming course focuses on constructing dynamic web sites using server-side languages, making use of databases and design patterns.  The concepts introduced in Web Frontend Development courses are expected to be continued and implemented.  
+6. **[WDD 430 – Web Full-Stack Development:](https://github.com/felipesud/wdd430)** This course will teach you how to design and build interactive web based applications using HTML, CSS, JavaScript, and a web development stack.[See the Final project repository](https://github.com/felipesud/temple-finder-app).
+
+7. **[CSE 340 – Web Backend Development:](https://github.com/felipesud/byu-idaho/tree/master/cse340/phpmotors)** This programming course focuses on constructing dynamic web sites using server-side languages, making use of databases and design patterns.  The concepts introduced in Web Frontend Development courses are expected to be continued and implemented.  
 
 
 
